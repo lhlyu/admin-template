@@ -56,7 +56,7 @@ const menus: MenuItem[] = [
             {
                 key: '',
                 label: '一级菜单2子菜单1',
-                path: '/v3',
+                path: '/v2',
                 selected: false,
                 expanded: false
             }
