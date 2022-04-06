@@ -11,10 +11,6 @@ export interface MenuItem {
     path: string
     // 子菜单
     childrens?: MenuItem[]
-    // 是否被选中
-    selected: boolean
-    // 是否展开子菜单
-    expanded: boolean
 }
 
 const AMenu = defineComponent({
