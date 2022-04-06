@@ -10,9 +10,8 @@
 </template>
 
 <script lang="ts" setup>
-import { h } from 'vue'
-import AMenu, { MenuItem } from '../../components/AMenu'
-import { UserAccess } from '@vicons/carbon'
+import type { MenuItem } from '../../components/AMenu'
+import AMenu from '../../components/AMenu'
 
 const menus: MenuItem[] = [
     {
