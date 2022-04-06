@@ -1,0 +1,33 @@
+@import 'variables';
+
+@import 'components';
+@import 'layout/index';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: $fontFamily;
+    font-size: $fontBaseSize;
+
+    background: $background;
+    color: $fontColor;
+
+    &::selection {
+        color: $selectionColor;
+        background-color: $selectionBackgroundColor;
+    }
+
+    &::-moz-selection {
+        color: $selectionColor;
+        background-color: $selectionBackgroundColor;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}

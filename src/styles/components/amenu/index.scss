@@ -1,0 +1,63 @@
+.menu {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        will-change: width;
+        width: 100%;
+        overflow: auto;
+    }
+    li {
+        margin: 0;
+        will-change: width;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        scroll-snap-align: start;
+    }
+
+    a {
+        padding: 14px 22px;
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        border-right: 4px solid transparent;
+
+        &:hover {
+            background: rgba($background2, 0.4);
+            border-right: 4px solid rgba($themeColor, 0.6);
+        }
+
+        span {
+            pointer-events: none;
+        }
+    }
+
+    .active {
+        background: rgba($background2, 0.8);
+        border-right: 4px solid $themeColor;
+        display: block;
+    }
+    .close {
+        display: none;
+    }
+}
+
+//span {
+//  display: inline-block;
+//  animation: 3s wordsLoop linear alternate infinite;
+//}
+//
+//@keyframes wordsLoop {
+//  0% {
+//    transform: translateX(0);
+//  }
+//  100% {
+//    transform: translateX(calc(-50%));
+//  }
+//}
