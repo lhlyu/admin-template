@@ -1,6 +1,6 @@
 @import 'variables';
-@import "dark-theme";
-@import "light-theme";
+@import 'dark-theme';
+@import 'light-theme';
 
 @import 'components';
 @import 'layout/index';
@@ -10,7 +10,6 @@
     padding: 0;
     -webkit-tap-highlight-color: transparent;
 }
-
 
 body {
     width: 100vw;
@@ -39,10 +38,5 @@ body {
     &::-moz-selection {
         color: rgb(var($adminSelectionColorRgb));
         background-color: rgb(var($adminSelectionBackgroundColorRgb));
-    }
-
-    a {
-        color: rgb(var($adminFontColorRgb));
-        text-decoration: none;
     }
 }

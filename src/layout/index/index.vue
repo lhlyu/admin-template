@@ -8,8 +8,9 @@
             <AAside></AAside>
         </aside>
         <section>
-            <div v-if='theme === "dark"' class='moon' @click='changeTheme'></div>
-            <div v-else class='sun' @click='changeTheme'></div>
+            <h3>一个简单的admin项目模板，仅实现了左侧菜单功能，可以搭配其他ui框架使用</h3>
+            <div v-if="theme === 'dark'" class="moon" @click="changeTheme"></div>
+            <div v-else class="sun" @click="changeTheme"></div>
             <router-view></router-view>
         </section>
     </main>
@@ -36,7 +37,6 @@ const collapsedFn = () => {
     }, 200)
 }
 
-
 // 切换主题
 const theme = ref<'dark' | 'light'>('dark')
 const changeTheme = () => {
@@ -48,16 +48,15 @@ const changeTheme = () => {
     theme.value = 'dark'
     document.documentElement.setAttribute('theme', theme.value)
 }
-
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .moon {
     position: absolute;
-    right: 100px;
-    top: 100px;
-    width: 100px;
-    height: 100px;
+    right: 30px;
+    top: 30px;
+    width: 30px;
+    height: 30px;
     background: yellow;
     border-radius: 50%;
     box-shadow: 0 0 30px 0px yellow, 0 0 100px 0 white;
@@ -65,13 +64,13 @@ const changeTheme = () => {
 }
 .sun {
     position: absolute;
-    right: 100px;
-    top: 100px;
-    width: 100px;
-    height: 100px;
+    right: 30px;
+    top: 30px;
+    width: 30px;
+    height: 30px;
     background: orangered;
     border-radius: 50%;
-    box-shadow: 0 0 30px 0px orangered, 0 0 100px 0 white;
+    box-shadow: 0 0 30px 0px orangered, 0 0 100px 0 #f7f7f7;
     cursor: pointer;
 }
 </style>

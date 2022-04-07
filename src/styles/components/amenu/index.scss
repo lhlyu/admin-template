@@ -27,24 +27,57 @@
         text-overflow: ellipsis;
         overflow: hidden;
         border-right: 4px solid transparent;
+        color: rgb(var($adminFontColorRgb));
+        text-decoration: none;
 
         &:hover {
             background: rgba(var($adminSelectedBackgroundColorRgb), 0.6);
             border-right: 4px solid rgb(var($adminThemeColorRgb));
         }
 
+        .menu-more {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid rgb(var($adminThemeColorRgb));
+        }
+
         span {
             pointer-events: none;
+            margin: 0 4px;
+        }
+
+        & + ul {
+            display: none;
         }
     }
 
+    // 菜单展开
+    .expand {
+        .menu-more {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 5px solid rgb(var($adminThemeColorRgb));
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid transparent;
+            vertical-align: sub;
+        }
+
+        & + ul {
+            display: unset;
+        }
+    }
+
+    // 菜单激活
     .active {
         background: rgba(var($adminSelectedBackgroundColorRgb), 0.6);
         border-right: 4px solid rgb(var($adminThemeColorRgb));
         display: block;
-    }
-    .close {
-        display: none;
     }
 }
 

@@ -1,17 +1,17 @@
 :root[theme='dark'] {
-  #{$adminBackgroundColorRgb}: 38,38,38;
-  #{$adminSelectedBackgroundColorRgb}: 68,71,90;
-  #{$adminAsideBackgroundColorRgb}: 38,38,38;
-  #{$adminMainBackgroundColorRgb}: 40,42,54;
-  #{$adminCollapseBackgroundColorRgb}: 38,38,38;
-  #{$adminCollapseColorRgb}: 248,248,242;
-  #{$adminThemeColorRgb}: 255,121,198;
-  #{$adminSelectionBackgroundColorRgb}: 255,184,108;
-  #{$adminSelectionColorRgb}: 38,38,38;
-  #{$adminFontColorRgb}: 248,248,242;
-  #{$adminFontSize}: 14px;
-  #{$adminFontFamily}: -apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC',
-  'Source Han Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif;
+    #{$adminBackgroundColorRgb}: 38, 38, 38;
+    #{$adminSelectedBackgroundColorRgb}: 68, 71, 90;
+    #{$adminAsideBackgroundColorRgb}: 38, 38, 38;
+    #{$adminMainBackgroundColorRgb}: 40, 42, 54;
+    #{$adminCollapseBackgroundColorRgb}: 38, 38, 38;
+    #{$adminCollapseColorRgb}: 248, 248, 242;
+    #{$adminThemeColorRgb}: 255, 121, 198;
+    #{$adminSelectionBackgroundColorRgb}: 255, 184, 108;
+    #{$adminSelectionColorRgb}: 38, 38, 38;
+    #{$adminFontColorRgb}: 248, 248, 242;
+    #{$adminFontSize}: 14px;
+    #{$adminFontFamily}: -apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC',
+        'Source Han Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif;
 
-  #{$adminAsideWidth}: 300px;
+    #{$adminAsideWidth}: 300px;
 }

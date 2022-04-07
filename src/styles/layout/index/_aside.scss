@@ -16,8 +16,9 @@ menu {
         height: 70px;
         overflow: hidden;
         justify-content: center;
-        background: rgba(var($adminSelectedBackgroundColorRgb),0.8);
+        background: rgba(var($adminSelectedBackgroundColorRgb), 0.8);
         cursor: pointer;
+        text-decoration: none;
         will-change: width;
         img {
             object-fit: cover;
