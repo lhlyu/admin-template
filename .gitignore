@@ -8,3 +8,4 @@ dist-ssr
 upgrade.sh
 /yarn-error.log
 pnpm-lock.yaml
+todo.md

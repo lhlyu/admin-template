@@ -1,4 +1,6 @@
 @import 'variables';
+@import "dark-theme";
+@import "light-theme";
 
 @import 'components';
 @import 'layout/index';
@@ -8,27 +10,39 @@
     padding: 0;
     -webkit-tap-highlight-color: transparent;
 }
+
+
 body {
     width: 100vw;
     height: 100vh;
-    font-family: $fontFamily;
-    font-size: $fontBaseSize;
+    font-family: var($adminFontFamily);
+    font-size: var($adminFontSize);
 
-    background: $background;
-    color: $fontColor;
+    background: rgb(var($adminBackgroundColorRgb));
+    color: rgb(var($adminFontColorRgb));
+
+    @media screen and (max-width: 540px) {
+        #{$adminAsideWidth}: 200px;
+    }
+    @media screen and (min-width: 541px) {
+        #{$adminAsideWidth}: 300px;
+    }
+    @media screen and (min-width: 1200px) {
+        #{$adminAsideWidth}: 17vw;
+    }
 
     &::selection {
-        color: $selectionColor;
-        background-color: $selectionBackgroundColor;
+        color: rgb(var($adminSelectionColorRgb));
+        background-color: rgb(var($adminSelectionBackgroundColorRgb));
     }
 
     &::-moz-selection {
-        color: $selectionColor;
-        background-color: $selectionBackgroundColor;
+        color: rgb(var($adminSelectionColorRgb));
+        background-color: rgb(var($adminSelectionBackgroundColorRgb));
     }
 
     a {
-        color: inherit;
+        color: rgb(var($adminFontColorRgb));
         text-decoration: none;
     }
 }

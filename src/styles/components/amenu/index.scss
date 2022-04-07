@@ -29,8 +29,8 @@
         border-right: 4px solid transparent;
 
         &:hover {
-            background: rgba($background2, 0.4);
-            border-right: 4px solid rgba($themeColor, 0.6);
+            background: rgba(var($adminSelectedBackgroundColorRgb), 0.6);
+            border-right: 4px solid rgb(var($adminThemeColorRgb));
         }
 
         span {
@@ -39,8 +39,8 @@
     }
 
     .active {
-        background: rgba($background2, 0.8);
-        border-right: 4px solid $themeColor;
+        background: rgba(var($adminSelectedBackgroundColorRgb), 0.6);
+        border-right: 4px solid rgb(var($adminThemeColorRgb));
         display: block;
     }
     .close {

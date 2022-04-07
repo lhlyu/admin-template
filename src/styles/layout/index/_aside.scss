@@ -16,7 +16,7 @@ menu {
         height: 70px;
         overflow: hidden;
         justify-content: center;
-        background: $background2;
+        background: rgba(var($adminSelectedBackgroundColorRgb),0.8);
         cursor: pointer;
         will-change: width;
         img {
@@ -30,7 +30,7 @@ menu {
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
-            color: $themeColor;
+            color: rgb(var($adminThemeColorRgb));
             will-change: width;
         }
     }
