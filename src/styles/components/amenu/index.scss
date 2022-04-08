@@ -18,7 +18,7 @@
         scroll-snap-align: start;
     }
 
-    a {
+    .menu-item {
         padding: 14px 22px;
         box-sizing: border-box;
         display: block;
@@ -57,6 +57,7 @@
 
     // 菜单展开
     .expand {
+
         .menu-more {
             display: inline-block;
             width: 0;
@@ -72,6 +73,7 @@
             display: unset;
         }
     }
+
 
     // 菜单激活
     .active {
