@@ -30,6 +30,7 @@
         color: rgb(var($adminFontColorRgb));
         text-decoration: none;
 
+
         &:hover {
             background: rgba(var($adminSelectedBackgroundColorRgb), 0.6);
             border-right: 4px solid rgb(var($adminThemeColorRgb));
