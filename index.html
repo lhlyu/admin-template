@@ -7,17 +7,6 @@
         <meta name="screen-orientation" content="portrait" />
         <meta name="x5-orientation" content="portrait" />
         <title>admin-template</title>
-
-        <!--    移除移动端hover样式    -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.5/mobile-detect.min.js"></script>
-        <script>
-            const md = new MobileDetect(window.navigator.userAgent);
-            if (md.mobile()) {
-                window.onload = () => {
-                    document.documentElement.classList.add('supports-touch')
-                }
-            }
-        </script>
     </head>
     <body>
         <div id="app"></div>
