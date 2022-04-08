@@ -32,8 +32,10 @@
 
 
         &:hover {
-            background: rgba(var($adminSelectedBackgroundColorRgb), 0.6);
-            border-right: 4px solid rgb(var($adminThemeColorRgb));
+            @media screen and (min-width: 800px) {
+                background: rgba(var($adminSelectedBackgroundColorRgb), 0.6);
+                border-right: 4px solid rgb(var($adminThemeColorRgb));
+            }
         }
 
         .menu-more {
