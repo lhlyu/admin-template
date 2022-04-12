@@ -33,7 +33,7 @@ const AMenu = defineComponent({
                                 <span class="menu-more"></span>
                                 {v?.icon} <span>{v.label}</span>
                             </div>
-                            <ul>{renderItem(key,layer + 1, v.childrens)}</ul>
+                            <ul>{renderItem(key, layer + 1, v.childrens)}</ul>
                         </li>
                     )
                 }
@@ -78,7 +78,7 @@ const AMenu = defineComponent({
                                     >
                                         <span class="menu-more"></span> {v?.icon} <span>{v.label}</span>
                                     </div>
-                                    <ul>{renderItem(key,2, v.childrens)}</ul>
+                                    <ul>{renderItem(key, 2, v.childrens)}</ul>
                                 </li>
                             )
                         }

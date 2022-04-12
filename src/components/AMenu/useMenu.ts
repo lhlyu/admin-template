@@ -24,9 +24,9 @@ const useMenu = (menus: MenuItem[]) => {
 
     // 所需数据
     // 菜单path对应的key
-    const menuMap:any = {}
+    const menuMap: any = {}
     // 当前菜单展开的key
-    const expandKeys:any = {}
+    const expandKeys: any = {}
 
     // 遍历菜单
     const iterMenus = (items: MenuItem[], parent: MenuItem, parentKey: string, matchPath: string): boolean => {
@@ -92,7 +92,6 @@ const useMenu = (menus: MenuItem[]) => {
         if (store.hasMenuMap(path)) {
             selectedMenuFn(path)
         }
-
     }
 
     onBeforeMount(() => {

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-export interface MenuStateOption {
+export interface MenuOption {
     // 菜单path对应的key
     menuMap: any
     // 当前菜单展开的key
@@ -17,20 +17,29 @@ const useMenuStore = defineStore({
             menuMap: {},
             expandKeys: {},
             selectedPath: ''
-        } as MenuStateOption),
+        } as MenuOption),
     getters: {
         // 获取当前选中的key
         getSelectedKey: state => state.menuMap[state.selectedPath],
         // 是否存在
-        hasMenuMap: state => (path: string = '') => state.menuMap[path]?.length > 0,
+        hasMenuMap:
+            state =>
+            (path: string = '') =>
+                state.menuMap[path]?.length > 0,
         // 是否是激活
-        isActive: state => (key: string = '') => state.menuMap[state.selectedPath] === key,
+        isActive:
+            state =>
+            (key: string = '') =>
+                state.menuMap[state.selectedPath] === key,
         // 是否展开
-        isExpand: state => (key: string = '') => state.expandKeys[key] === 1
+        isExpand:
+            state =>
+            (key: string = '') =>
+                state.expandKeys[key] === 1
     },
     actions: {
         init(
-            opt: MenuStateOption = {
+            opt: MenuOption = {
                 menuMap: {},
                 expandKeys: {},
                 selectedPath: ''

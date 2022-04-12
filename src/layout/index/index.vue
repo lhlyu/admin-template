@@ -2,51 +2,63 @@
     <main>
         <aside ref="aside">
             <button class="collapsed" @click="collapsedFn" aria-label="collapse-btn">
-                <ChevronLeft v-show="!collapsed" class="collapsed-icon"></ChevronLeft>
-                <ChevronRight v-show="collapsed" class="collapsed-icon"></ChevronRight>
+                <ChevronLeft v-show="!store.collapsed" class="collapsed-icon"></ChevronLeft>
+                <ChevronRight v-show="store.collapsed" class="collapsed-icon"></ChevronRight>
             </button>
             <AAside></AAside>
         </aside>
         <section>
             <h3>一个简单的admin项目模板，仅实现了左侧菜单功能，可以搭配其他ui框架使用</h3>
-            <div v-if="theme === 'dark'" class="moon" @click="changeTheme"></div>
-            <div v-else class="sun" @click="changeTheme"></div>
+            <div v-if="store.theme === 'dark'" class="moon" @click="toggleTheme"></div>
+            <div v-else class="sun" @click="toggleTheme"></div>
             <router-view></router-view>
         </section>
     </main>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { onBeforeMount, onMounted, ref } from 'vue'
 import AAside from './aside.vue'
 import { ChevronLeft, ChevronRight } from '@vicons/carbon'
+import useSiteStore from '../../stores/site'
 
 const aside = ref<HTMLElement>()
 
+const store = useSiteStore()
+
+onBeforeMount(() => {
+    document.documentElement.setAttribute('theme', store.theme)
+})
+
+onMounted(() => {
+    if (store.collapsed) {
+        aside.value?.classList.add('aside-collapsed')
+    } else {
+        aside.value?.classList.remove('aside-collapsed')
+    }
+})
+
 // 菜单是否折叠
-const collapsed = ref<boolean>(false)
 const collapsedFn = () => {
-    if (collapsed.value) {
+    if (store.collapsed) {
         aside.value?.classList.remove('aside-collapsed')
     } else {
         aside.value?.classList.add('aside-collapsed')
     }
     const timer = setTimeout(() => {
-        collapsed.value = !collapsed.value
+        store.triggleCollapsed()
         clearTimeout(timer)
     }, 200)
 }
 
 // 切换主题
-const theme = ref<'dark' | 'light'>('dark')
-const changeTheme = () => {
-    if (theme.value === 'dark') {
-        theme.value = 'light'
-        document.documentElement.setAttribute('theme', theme.value)
-        return
+const toggleTheme = () => {
+    if (store.theme === 'light') {
+        store.setTheme('dark')
+    } else {
+        store.setTheme('light')
     }
-    theme.value = 'dark'
-    document.documentElement.setAttribute('theme', theme.value)
+    document.documentElement.setAttribute('theme', store.theme)
 }
 </script>
 

@@ -30,7 +30,6 @@
         color: rgb(var($adminFontColorRgb));
         text-decoration: none;
 
-
         &:hover {
             @media screen and (min-width: 800px) {
                 background: rgba(var($adminSelectedBackgroundColorRgb), 0.6);
@@ -60,7 +59,6 @@
 
     // 菜单展开
     .expand {
-
         .menu-more {
             display: inline-block;
             width: 0;
@@ -76,7 +74,6 @@
             display: unset;
         }
     }
-
 
     // 菜单激活
     .active {

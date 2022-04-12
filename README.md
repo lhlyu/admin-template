@@ -4,3 +4,4 @@
 
 
 - [免费图标](https://www.logosc.cn/logo/)
+- [彩色图标](https://icons8.com/icon/set/popular/color)
