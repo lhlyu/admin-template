@@ -1,55 +1,59 @@
 <template>
     <menu>
-        <router-link to="/setting" class="admin">
+        <router-link to="/v1_3_1" class="admin">
             <img src="/logo.png" alt="logo" />
             <strong>管理员：谕</strong>
         </router-link>
-
         <AMenu :menus="menus"></AMenu>
     </menu>
 </template>
 
 <script lang="ts" setup>
 import AMenu from '../../components/AMenu'
-import { UserAdmin, SendAltFilled, FolderAdd } from '@vicons/carbon'
-import { h } from 'vue'
+import { hicon } from '../../components/Icon/index'
 import type { MenuItem } from '../../components/AMenu/useMenu'
 
 const menus: MenuItem[] = [
     {
-        label: '一级菜单1',
-        path: '/v5',
-        icon: h(UserAdmin, { style: { width: '18px', verticalAlign: 'bottom' } }),
+        label: '一级菜单A',
+        path: '/v1',
+        icon: hicon('home'),
         childrens: [
             {
-                label: '一级菜单1子菜单1',
-                path: '/setting'
+                label: '二级菜单a',
+                path: '/v1_1'
             },
             {
-                label: '一级菜单1子菜单2',
-                path: '/v4',
-                icon: h(FolderAdd, { style: { width: '18px', verticalAlign: 'bottom' } }),
+                label: '二级菜单b',
+                path: '/v1_2'
+            },
+            {
+                label: '二级菜单c',
+                path: '/v1_3',
                 childrens: [
                     {
-                        label: '一级菜单1子菜单2-1,名字要长长长长长长长长长长长长长长长长',
-                        path: '/v1'
+                        label: '三级菜单1',
+                        path: '/v1_3_1'
+                    },
+                    {
+                        label: '三级菜单2',
+                        path: '/v1_3_2'
                     }
                 ]
             }
         ]
     },
     {
-        label: '一级菜单2',
+        label: '一级菜单B',
         path: '/v2',
-        icon: h(SendAltFilled, { style: { width: '18px', verticalAlign: 'bottom' } }),
         childrens: [
             {
-                label: '一级菜单2子菜单1',
+                label: '二级菜单d',
                 path: '/v2'
             },
             {
-                label: '一级菜单2子菜单2',
-                path: '/v3'
+                label: '二级菜单e',
+                path: '/v2_2'
             }
         ]
     }

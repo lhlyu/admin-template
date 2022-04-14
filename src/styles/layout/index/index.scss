@@ -20,7 +20,7 @@
             width: var($adminAsideWidth);
             height: 100%;
             will-change: width;
-            transition: width 0.2s linear;
+            transition: width 0.4s ease-in-out;
             background: rgb(var($adminAsideBackgroundColorRgb));
 
             .collapsed {
@@ -44,7 +44,6 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 30px;
             background: rgb(var($adminMainBackgroundColorRgb));
         }
     }

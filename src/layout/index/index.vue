@@ -2,13 +2,16 @@
     <main>
         <aside ref="aside">
             <button class="collapsed" @click="collapsedFn" aria-label="collapse-btn">
-                <ChevronLeft v-show="!store.collapsed" class="collapsed-icon"></ChevronLeft>
-                <ChevronRight v-show="store.collapsed" class="collapsed-icon"></ChevronRight>
+                <svg v-show="!store.collapsed" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" class="collapsed-icon">
+                    <path d="M10 16L20 6l1.4 1.4l-8.6 8.6l8.6 8.6L20 26z" fill="currentColor"></path>
+                </svg>
+                <svg v-show="store.collapsed" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" class="collapsed-icon">
+                    <path d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z" fill="currentColor"></path>
+                </svg>
             </button>
             <AAside></AAside>
         </aside>
         <section>
-            <h3>一个简单的admin项目模板，仅实现了左侧菜单功能，可以搭配其他ui框架使用</h3>
             <div v-if="store.theme === 'dark'" class="moon" @click="toggleTheme"></div>
             <div v-else class="sun" @click="toggleTheme"></div>
             <router-view></router-view>
@@ -19,7 +22,6 @@
 <script lang="ts" setup>
 import { onBeforeMount, onMounted, ref } from 'vue'
 import AAside from './aside.vue'
-import { ChevronLeft, ChevronRight } from '@vicons/carbon'
 import useSiteStore from '../../stores/site'
 
 const aside = ref<HTMLElement>()
@@ -28,6 +30,7 @@ const store = useSiteStore()
 
 onBeforeMount(() => {
     document.documentElement.setAttribute('theme', store.theme)
+    document.body.setAttribute('arco-theme', store.theme)
 })
 
 onMounted(() => {
@@ -59,6 +62,7 @@ const toggleTheme = () => {
         store.setTheme('light')
     }
     document.documentElement.setAttribute('theme', store.theme)
+    document.body.setAttribute('arco-theme', store.theme)
 }
 </script>
 

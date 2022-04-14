@@ -29,6 +29,7 @@
         border-right: 4px solid transparent;
         color: rgb(var($adminFontColorRgb));
         text-decoration: none;
+        transition: all 0.2s ease-in-out;
 
         &:hover {
             @media screen and (min-width: 800px) {

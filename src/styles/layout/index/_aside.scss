@@ -1,8 +1,10 @@
 menu {
-    width: 100%;
+    width: inherit;
+    max-width: inherit;
     height: 100%;
     overflow: auto;
     box-sizing: border-box;
+    will-change: width;
 
     &::-webkit-scrollbar {
         display: none;

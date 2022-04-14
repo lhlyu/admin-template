@@ -5,14 +5,7 @@ import IndexLayout from '../layout/index/index.vue'
 import BlankLayout from '../layout/blank/index.vue'
 
 // 页面
-// 仪表板
-const DashBoard = () => import('../views/dashboard/index.vue')
-const Setting = () => import('../views/setting/index.vue')
-const V1 = () => import('../views/1.vue')
-const V2 = () => import('../views/2.vue')
-const V3 = () => import('../views/3.vue')
-const V4 = () => import('../views/4.vue')
-const V5 = () => import('../views/5.vue')
+const V = () => import('../views/index.vue')
 
 export const routes: RouteRecordRaw[] = [
     {
@@ -21,34 +14,55 @@ export const routes: RouteRecordRaw[] = [
         component: IndexLayout,
         children: [
             {
-                name: 'DashBoard',
-                path: '/v5',
-                component: V5
-            },
-            {
-                name: 'Setting',
-                path: '/setting',
-                component: Setting
-            },
-            {
                 name: 'v1',
                 path: '/v1',
-                component: V1
+                component: V,
+                children: [
+                    {
+                        name: 'v1-1',
+                        path: '/v1_1',
+                        component: V
+                    },
+                    {
+                        name: 'v1-2',
+                        path: '/v1_2',
+                        component: V
+                    },
+                    {
+                        name: 'v1-3',
+                        path: '/v1_3',
+                        component: BlankLayout,
+                        children: [
+                            {
+                                name: 'v1-3-1',
+                                path: '/v1_3_1',
+                                component: V
+                            },
+                            {
+                                name: 'v1-3-2',
+                                path: '/v1_3_2',
+                                component: V
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 name: 'v2',
                 path: '/v2',
-                component: V2
-            },
-            {
-                name: 'v3',
-                path: '/v3',
-                component: V3
-            },
-            {
-                name: 'v4',
-                path: '/v4',
-                component: V4
+                component: BlankLayout,
+                children: [
+                    {
+                        name: 'v2-1',
+                        path: '/v2',
+                        component: V
+                    },
+                    {
+                        name: 'v2-2',
+                        path: '/v2_2',
+                        component: V
+                    }
+                ]
             }
         ]
     }

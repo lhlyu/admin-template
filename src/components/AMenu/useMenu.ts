@@ -1,5 +1,5 @@
 import { onBeforeMount, VNode } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute, useRouter, onBeforeRouteUpdate } from 'vue-router'
 import useMenuStore from '../../stores/menu'
 
 export interface MenuItem {
@@ -56,8 +56,10 @@ const useMenu = (menus: MenuItem[]) => {
     }
 
     // 初始化
-    const init = () => {
-        const path = route.path
+    const init = (path: string = '') => {
+        if (path.length === 0) {
+            path = route.path
+        }
         // 如果与缓存一致，直接使用缓存的数据
         if (store.selectedPath === path) {
             return
@@ -96,6 +98,10 @@ const useMenu = (menus: MenuItem[]) => {
 
     onBeforeMount(() => {
         init()
+    })
+
+    onBeforeRouteUpdate(u => {
+        init(u.path)
     })
 
     return {

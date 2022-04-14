@@ -19,7 +19,6 @@ const useSiteStore = defineStore({
     actions: {
         async setTheme(theme: 'dark' | 'light') {
             this.theme = theme
-            console.log('--->>>', this.theme, theme)
         },
         triggleCollapsed() {
             this.collapsed = !this.collapsed
@@ -28,7 +27,8 @@ const useSiteStore = defineStore({
     // 启用持久化
     persist: {
         enabled: true,
-        storage: window.localStorage
+        storage: window.localStorage,
+        compress: true
     }
 })
 
