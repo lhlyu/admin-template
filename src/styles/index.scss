@@ -29,7 +29,7 @@ body {
         #{$adminAsideWidth}: 300px;
     }
     @media screen and (min-width: 1200px) {
-        #{$adminAsideWidth}: 17vw;
+        #{$adminAsideWidth}: 20vw;
     }
 
     &::selection {

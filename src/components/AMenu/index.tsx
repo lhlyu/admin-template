@@ -28,10 +28,10 @@ const AMenu = defineComponent({
                                     expand: store.isExpand(key)
                                 }}
                                 onClick={() => triggleMenuFn(key, v.path!)}
-                                style={{ paddingLeft: layer * 22 + 'px' }}
+                                style={{ paddingLeft: layer * 30 + 'px' }}
                             >
-                                <span class="menu-more"></span>
                                 {v?.icon} <span>{v.label}</span>
+                                <span class="menu-more"></span>
                             </div>
                             <ul>{renderItem(key, layer + 1, v.childrens)}</ul>
                         </li>
@@ -45,7 +45,7 @@ const AMenu = defineComponent({
                                     'menu-item': true,
                                     active: store.isActive(key)
                                 }}
-                                style={{ paddingLeft: layer * 22 + 'px' }}
+                                style={{ paddingLeft: layer * 30 + 'px' }}
                                 onClick={() => selectedMenuFn(v.path!)}
                             >
                                 {v?.icon} <span>{v.label}</span>
@@ -76,7 +76,7 @@ const AMenu = defineComponent({
                                         }}
                                         onClick={() => triggleMenuFn(key, v.path!)}
                                     >
-                                        <span class="menu-more"></span> {v?.icon} <span>{v.label}</span>
+                                        {v?.icon} <span>{v.label}</span><span class="menu-more"></span>
                                     </div>
                                     <ul>{renderItem(key, 2, v.childrens)}</ul>
                                 </li>

@@ -1,5 +1,5 @@
 <template>
-    <div class="text">当前路由: {{ route.path }}</div>
+    <div class="text">当前路由: {{ route.path }} {{ route.meta.title }}</div>
 </template>
 
 <script setup lang="ts">

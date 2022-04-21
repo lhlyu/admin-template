@@ -49,7 +49,7 @@ export default ({ options, store }: PiniaPluginContext): void => {
         // 存储策略
         const storage = options.persist?.storage || sessionStorage
         // 存储的名字
-        const storeKey = options.persist?.storeKey || 'at_' + store.$id
+        const storeKey = options.persist?.storeKey || store.$id
 
         const storageResult = storage.getItem(storeKey)
 

@@ -14,7 +14,11 @@
         <section>
             <div v-if="store.theme === 'dark'" class="moon" @click="toggleTheme"></div>
             <div v-else class="sun" @click="toggleTheme"></div>
-            <router-view></router-view>
+            <router-view v-slot="{ Component }">
+                <keep-alive>
+                    <component :is="Component" :key="$route.name"/>
+                </keep-alive>
+            </router-view>
         </section>
     </main>
 </template>
@@ -30,7 +34,6 @@ const store = useSiteStore()
 
 onBeforeMount(() => {
     document.documentElement.setAttribute('theme', store.theme)
-    document.body.setAttribute('arco-theme', store.theme)
 })
 
 onMounted(() => {
@@ -62,7 +65,6 @@ const toggleTheme = () => {
         store.setTheme('light')
     }
     document.documentElement.setAttribute('theme', store.theme)
-    document.body.setAttribute('arco-theme', store.theme)
 }
 </script>
 

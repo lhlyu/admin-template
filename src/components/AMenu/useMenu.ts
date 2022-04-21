@@ -34,7 +34,9 @@ const useMenu = (menus: MenuItem[]) => {
         for (let i = 0; i < items.length; i++) {
             const key = `${parentKey}${parentKey.length > 0 ? '-' : ''}${i + 1}`
 
-            menuMap[items[i].path!] = key
+            if (items[i].path?.length) {
+                menuMap[items[i].path!] = key
+            }
 
             if (items[i].path === matchPath) {
                 if (parentKey != '') {

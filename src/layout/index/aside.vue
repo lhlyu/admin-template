@@ -1,6 +1,6 @@
 <template>
     <menu>
-        <router-link to="/v1_3_1" class="admin">
+        <router-link to="/setting" class="admin">
             <img src="/logo.png" alt="logo" />
             <strong>管理员：谕</strong>
         </router-link>
@@ -12,50 +12,34 @@
 import AMenu from '../../components/AMenu'
 import { hicon } from '../../components/Icon/index'
 import type { MenuItem } from '../../components/AMenu/useMenu'
+import type { RouteRecordRaw } from 'vue-router'
+import { menuRoutes } from '../../routes/routes'
+import { onBeforeMount, ref } from 'vue'
 
-const menus: MenuItem[] = [
-    {
-        label: '一级菜单A',
-        path: '/v1',
-        icon: hicon('home'),
-        childrens: [
-            {
-                label: '二级菜单a',
-                path: '/v1_1'
-            },
-            {
-                label: '二级菜单b',
-                path: '/v1_2'
-            },
-            {
-                label: '二级菜单c',
-                path: '/v1_3',
-                childrens: [
-                    {
-                        label: '三级菜单1',
-                        path: '/v1_3_1'
-                    },
-                    {
-                        label: '三级菜单2',
-                        path: '/v1_3_2'
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        label: '一级菜单B',
-        path: '/v2',
-        childrens: [
-            {
-                label: '二级菜单d',
-                path: '/v2'
-            },
-            {
-                label: '二级菜单e',
-                path: '/v2_2'
-            }
-        ]
+
+const routesToMenus = (routes: RouteRecordRaw[] = []):MenuItem[] => {
+    if (routes.length === 0) {
+        return []
     }
-]
+    const items:MenuItem[] = []
+    for (let i = 0; i < routes.length; i++) {
+        const childs = routesToMenus(routes[i].children)
+        items.push({
+            label: routes[i].meta?.title as string,
+            icon: hicon(routes[i].name as string),
+            path: routes[i].path,
+            // 子菜单
+            childrens: childs
+        })
+    }
+    return items
+}
+
+const menus = ref<MenuItem[]>([])
+
+onBeforeMount(() => {
+    menus.value = routesToMenus(menuRoutes)
+    console.log('---->', menuRoutes)
+})
+
 </script>
