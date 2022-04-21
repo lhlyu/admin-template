@@ -1,7 +1,7 @@
 <template>
     <router-view v-slot="{ Component }">
         <keep-alive>
-            <component :is="Component" :key="$route.name"/>
+            <component :is="Component"/>
         </keep-alive>
     </router-view>
 </template>
