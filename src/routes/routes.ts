@@ -1,5 +1,8 @@
 import type { RouteRecordRaw } from 'vue-router'
 
+// 图标
+import { hicon } from '../components/Icon'
+
 // 布局
 import IndexLayout from '../layout/index/index.vue'
 import BlankLayout from '../layout/blank/index.vue'
@@ -8,15 +11,14 @@ import BlankLayout from '../layout/blank/index.vue'
 const LoginView = () => import('../views/login/index.vue')
 const IndexView = () => import('../views/index.vue')
 
-
-
 export const menuRoutes: RouteRecordRaw[] = [
     {
         name: 'dashboard',
         path: '/',
         component: IndexView,
         meta: {
-            title: '仪表板'
+            title: '仪表板',
+            icon: hicon('dashboard')
         }
     },
     {
@@ -24,7 +26,8 @@ export const menuRoutes: RouteRecordRaw[] = [
         path: '',
         component: BlankLayout,
         meta: {
-            title: '用户管理'
+            title: '用户管理',
+            icon: hicon('user-manage')
         },
         children: [
             {
@@ -32,7 +35,8 @@ export const menuRoutes: RouteRecordRaw[] = [
                 path: '/user',
                 component: IndexView,
                 meta: {
-                    title: '用户列表'
+                    title: '用户列表',
+                    icon: hicon('user')
                 }
             }
         ]
@@ -42,7 +46,8 @@ export const menuRoutes: RouteRecordRaw[] = [
         path: '',
         component: BlankLayout,
         meta: {
-            title: '内容管理'
+            title: '内容管理',
+            icon: hicon('content-manage')
         },
         children: [
             {
@@ -50,7 +55,8 @@ export const menuRoutes: RouteRecordRaw[] = [
                 path: '/content-image',
                 component: IndexView,
                 meta: {
-                    title: '用户图片记录'
+                    title: '用户图片记录',
+                    icon: hicon('content-image')
                 }
             },
             {
@@ -58,7 +64,8 @@ export const menuRoutes: RouteRecordRaw[] = [
                 path: '/content-wording',
                 component: IndexView,
                 meta: {
-                    title: '用户文字记录'
+                    title: '用户文字记录',
+                    icon: hicon('content-wording')
                 }
             }
         ]
@@ -68,7 +75,8 @@ export const menuRoutes: RouteRecordRaw[] = [
         path: '',
         component: BlankLayout,
         meta: {
-            title: '后端'
+            title: '后端',
+            icon: hicon('backend')
         },
         children: [
             {
@@ -76,7 +84,8 @@ export const menuRoutes: RouteRecordRaw[] = [
                 path: '/errcode',
                 component: IndexView,
                 meta: {
-                    title: '错误码'
+                    title: '错误码',
+                    icon: hicon('errcode')
                 }
             },
             {
@@ -84,7 +93,8 @@ export const menuRoutes: RouteRecordRaw[] = [
                 path: '/monitor',
                 component: IndexView,
                 meta: {
-                    title: '监控'
+                    title: '监控',
+                    icon: hicon('monitor')
                 }
             }
         ]
@@ -94,7 +104,8 @@ export const menuRoutes: RouteRecordRaw[] = [
         path: '',
         component: BlankLayout,
         meta: {
-            title: '运营'
+            title: '运营',
+            icon: hicon('operator-manage')
         },
         children: [
             {
@@ -102,7 +113,8 @@ export const menuRoutes: RouteRecordRaw[] = [
                 path: '/resource-upload',
                 component: IndexView,
                 meta: {
-                    title: '资源上传'
+                    title: '资源上传',
+                    icon: hicon('resource-upload')
                 }
             },
             {
@@ -110,7 +122,8 @@ export const menuRoutes: RouteRecordRaw[] = [
                 path: '/message-push',
                 component: IndexView,
                 meta: {
-                    title: '推送消息'
+                    title: '推送消息',
+                    icon: hicon('message-push')
                 }
             },
             {
@@ -118,7 +131,8 @@ export const menuRoutes: RouteRecordRaw[] = [
                 path: '/acm',
                 component: IndexView,
                 meta: {
-                    title: '配置中心'
+                    title: '配置中心',
+                    icon: hicon('acm')
                 }
             }
         ]
@@ -128,7 +142,8 @@ export const menuRoutes: RouteRecordRaw[] = [
         path: '/setting',
         component: IndexView,
         meta: {
-            title: '个人设置'
+            title: '个人设置',
+            icon: hicon('setting')
         }
     },
     {
@@ -136,7 +151,8 @@ export const menuRoutes: RouteRecordRaw[] = [
         path: '/account',
         component: IndexView,
         meta: {
-            title: '账号管理'
+            title: '账号管理',
+            icon: hicon('account')
         }
     }
 ]

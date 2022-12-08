@@ -1,11 +1,12 @@
 .menu {
     ul {
-        list-style: none;
+        list-style-type: none;
         padding: 0;
         margin: 0;
         will-change: width;
         width: 100%;
         overflow: auto;
+        box-sizing: border-box;
     }
     li {
         margin: 0;

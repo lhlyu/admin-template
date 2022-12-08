@@ -25,11 +25,7 @@ const useSiteStore = defineStore({
         }
     },
     // 启用持久化
-    persist: {
-        enabled: true,
-        storage: window.localStorage,
-        compress: true
-    }
+    persist: true
 })
 
 export default useSiteStore

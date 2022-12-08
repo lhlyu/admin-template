@@ -7,10 +7,7 @@ const useSampleStore = defineStore({
     getters: {},
     actions: {},
     // 启用持久化
-    persist: {
-        enabled: true,
-        storage: window.localStorage
-    }
+    persist: true
 })
 
 export default useSampleStore

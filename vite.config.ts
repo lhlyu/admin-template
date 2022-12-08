@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
         plugins: [vue(), PluginVueJsx()],
         envDir: envDir,
         build: {
+            target: 'es2015',
             cssTarget: 'chrome61'
         }
     }

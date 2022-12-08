@@ -76,7 +76,8 @@ const AMenu = defineComponent({
                                         }}
                                         onClick={() => triggleMenuFn(key, v.path!)}
                                     >
-                                        {v?.icon} <span>{v.label}</span><span class="menu-more"></span>
+                                        {v?.icon} <span>{v.label}</span>
+                                        <span class="menu-more"></span>
                                     </div>
                                     <ul>{renderItem(key, 2, v.childrens)}</ul>
                                 </li>

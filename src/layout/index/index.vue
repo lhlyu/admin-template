@@ -16,7 +16,7 @@
             <div v-else class="sun" @click="toggleTheme"></div>
             <router-view v-slot="{ Component }">
                 <keep-alive>
-                    <component :is="Component"/>
+                    <component :is="Component" />
                 </keep-alive>
             </router-view>
         </section>

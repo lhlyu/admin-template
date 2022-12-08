@@ -63,9 +63,7 @@ const useMenuStore = defineStore({
     },
     // 启用持久化
     persist: {
-        enabled: true,
-        storage: window.sessionStorage,
-        compress: true
+        storage: sessionStorage
     }
 })
 
