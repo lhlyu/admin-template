@@ -62,8 +62,9 @@ const useMenu = (menus: MenuItem[]) => {
         if (path.length === 0) {
             path = route.path
         }
+
         // 如果与缓存一致，直接使用缓存的数据
-        if (store.selectedPath === path) {
+        if (store.selectedPath === path && menuMap.hasOwnProperty(store.selectedPath)) {
             return
         }
 

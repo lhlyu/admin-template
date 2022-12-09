@@ -1,3 +1,4 @@
+@import 'functions';
 @import 'variables';
 @import 'dark-theme';
 @import 'light-theme';
@@ -31,14 +32,14 @@ body {
     @media screen and (min-width: 1200px) {
         #{$adminAsideWidth}: 20vw;
     }
+}
 
-    &::selection {
-        color: rgb(var($adminSelectionColorRgb));
-        background-color: rgb(var($adminSelectionBackgroundColorRgb));
-    }
+::selection {
+    color: rgb(var($adminSelectionColorRgb));
+    background-color: rgb(var($adminSelectionBackgroundColorRgb));
+}
 
-    &::-moz-selection {
-        color: rgb(var($adminSelectionColorRgb));
-        background-color: rgb(var($adminSelectionBackgroundColorRgb));
-    }
+::-moz-selection {
+    color: rgb(var($adminSelectionColorRgb));
+    background-color: rgb(var($adminSelectionBackgroundColorRgb));
 }

@@ -129,11 +129,31 @@ export const menuRoutes: RouteRecordRaw[] = [
             {
                 name: 'acm',
                 path: '/acm',
-                component: IndexView,
+                component: BlankLayout,
                 meta: {
                     title: '配置中心',
                     icon: hicon('acm')
-                }
+                },
+                children: [
+                    {
+                        name: 'content-image2',
+                        path: '/content-image2',
+                        component: IndexView,
+                        meta: {
+                            title: '用户图片记录2',
+                            icon: hicon('content-image')
+                        }
+                    },
+                    {
+                        name: 'content-wording2',
+                        path: '/content-wording2',
+                        component: IndexView,
+                        meta: {
+                            title: '用户文字记录2',
+                            icon: hicon('content-wording')
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -152,6 +172,42 @@ export const menuRoutes: RouteRecordRaw[] = [
         component: IndexView,
         meta: {
             title: '账号管理',
+            icon: hicon('account')
+        }
+    },
+    {
+        name: 'account2',
+        path: '/account2',
+        component: IndexView,
+        meta: {
+            title: '账号管理2',
+            icon: hicon('account')
+        }
+    },
+    {
+        name: 'account3',
+        path: '/account3',
+        component: IndexView,
+        meta: {
+            title: '账号管理3',
+            icon: hicon('account')
+        }
+    },
+    {
+        name: 'account4',
+        path: '/account4',
+        component: IndexView,
+        meta: {
+            title: '账号管理4',
+            icon: hicon('account')
+        }
+    },
+    {
+        name: 'account5',
+        path: '/account5',
+        component: IndexView,
+        meta: {
+            title: '账号管理5',
             icon: hicon('account')
         }
     }

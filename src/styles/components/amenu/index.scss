@@ -20,10 +20,12 @@
     }
 
     .menu-item {
-        padding: 14px 22px;
+        padding: 0 28px;
         box-sizing: border-box;
         display: block;
+        height: 50px;
         width: 100%;
+        line-height: 50px;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -61,6 +63,7 @@
 
     // 菜单展开
     .expand {
+
         .menu-more {
             display: inline-block;
             width: 0;

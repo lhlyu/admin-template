@@ -14,10 +14,14 @@
         <section>
             <div v-if="store.theme === 'dark'" class="moon" @click="toggleTheme"></div>
             <div v-else class="sun" @click="toggleTheme"></div>
-            <router-view v-slot="{ Component }">
-                <keep-alive>
-                    <component :is="Component" />
-                </keep-alive>
+            <router-view v-slot="{ Component, route }">
+                <transition name="fade" mode="out-in">
+                    <keep-alive>
+                        <div>
+                            <component :is="Component" />
+                        </div>
+                    </keep-alive>
+                </transition>
             </router-view>
         </section>
     </main>
@@ -66,6 +70,7 @@ const toggleTheme = () => {
     }
     document.documentElement.setAttribute('theme', store.theme)
 }
+
 </script>
 
 <style lang="scss" scoped>

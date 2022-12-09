@@ -1,7 +1,7 @@
 <template>
     <menu>
         <router-link to="/setting" class="admin">
-            <img src="/logo.png" alt="logo" />
+            <img src="/avatar.png" alt="logo" />
             <strong>管理员：谕</strong>
         </router-link>
         <AMenu :menus="menus"></AMenu>
@@ -37,6 +37,5 @@ const menus = ref<MenuItem[]>([])
 
 onBeforeMount(() => {
     menus.value = routesToMenus(menuRoutes)
-    console.log('---->', menuRoutes)
 })
 </script>
