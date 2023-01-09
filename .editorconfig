@@ -1,11 +1,12 @@
 root = true
 
-[*.{vue,ts,html,js,scss,css}]
+
+[*.{vue,ts,js,scss,css}]
 indent_size = 4
 indent_style = space
 end_of_line = lf
 
-[*.{json, yaml, yml}]
+[*.{json, yaml, yml, html}]
 indent_size = 2
 indent_style = space
 end_of_line = lf

@@ -4,6 +4,7 @@
 *.yaml
 *.toal
 *.ini
+*.html
 .idea
 node_modules
 test

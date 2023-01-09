@@ -1,11 +1,5 @@
-@import 'functions';
-@import 'variables';
 @import 'dark-theme';
 @import 'light-theme';
-
-@import 'icons';
-@import 'components';
-@import 'layout/index';
 
 * {
     margin: 0;
@@ -14,32 +8,20 @@
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    font-family: var($adminFontFamily);
-    font-size: var($adminFontSize);
-
-    background: rgb(var($adminBackgroundColorRgb));
-    color: rgb(var($adminFontColorRgb));
+    font-family: var(--admin-font-family);
+    font-size: var(--admin-font-size);
+    background-color: rgb(var(--admin-bg));
+    color: rgb(var(--admin-font-color));
     scroll-behavior: smooth;
-
-    @media screen and (max-width: 540px) {
-        #{$adminAsideWidth}: 260px;
-    }
-    @media screen and (min-width: 541px) {
-        #{$adminAsideWidth}: 300px;
-    }
-    @media screen and (min-width: 1200px) {
-        #{$adminAsideWidth}: 20vw;
-    }
+    transition: background 0.4s linear, color 0.4s linear;
 }
 
 ::selection {
-    color: rgb(var($adminSelectionColorRgb));
-    background-color: rgb(var($adminSelectionBackgroundColorRgb));
+    color: rgb(var(--admin-selection-color));
+    background-color: rgb(var(--admin-selection-bg));
 }
 
 ::-moz-selection {
-    color: rgb(var($adminSelectionColorRgb));
-    background-color: rgb(var($adminSelectionBackgroundColorRgb));
+    color: rgb(var(--admin-selection-color));
+    background-color: rgb(var(--admin-selection-bg));
 }

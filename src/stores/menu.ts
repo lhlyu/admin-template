@@ -1,64 +1,40 @@
 import { defineStore } from 'pinia'
 
 export interface MenuOption {
-    // 菜单path对应的key
-    menuMap: any
-    // 当前菜单展开的key
-    expandKeys: any
-    // 当前被选中的path
-    selectedPath: string
+    // 当前路由
+    current: string
+    // 展开的菜单
+    expands: string[]
 }
 
 // 菜单配置
 const useMenuStore = defineStore({
     id: 'menu',
-    state: () =>
-        ({
-            menuMap: {},
-            expandKeys: {},
-            selectedPath: ''
-        } as MenuOption),
-    getters: {
-        // 获取当前选中的key
-        getSelectedKey: state => state.menuMap[state.selectedPath],
-        // 是否存在
-        hasMenuMap:
-            state =>
-            (path: string = '') =>
-                state.menuMap[path]?.length > 0,
-        // 是否是激活
-        isActive:
-            state =>
-            (key: string = '') =>
-                state.menuMap[state.selectedPath] === key,
-        // 是否展开
-        isExpand:
-            state =>
-            (key: string = '') =>
-                state.expandKeys[key] === 1
-    },
+    state: (): MenuOption => ({
+        current: 'dashboard',
+        expands: []
+    }),
+    getters: {},
     actions: {
-        init(
-            opt: MenuOption = {
-                menuMap: {},
-                expandKeys: {},
-                selectedPath: ''
-            }
-        ) {
-            this.menuMap = opt.menuMap
-            this.expandKeys = opt.expandKeys
-            this.selectedPath = opt.selectedPath
-        },
-        setSelectedPath(path: string) {
-            this.selectedPath = path
-        },
-        addExpandKeys(...keys: string[]) {
-            keys.map(key => {
-                this.expandKeys[key] = 1
+        // 展开指定菜单菜单
+        expandMenu(...names: string[]) {
+            names.forEach(value => {
+                if (this.expands.includes(value)) {
+                    return
+                }
+                this.expands.push(value)
             })
         },
-        removeExpandKey(key: string) {
-            delete this.expandKeys[key]
+        // 折叠某个菜单
+        collapseMenu(name: string) {
+            const index = this.expands.indexOf(name)
+            if (index > -1) {
+                this.expands.splice(index, 1)
+            }
+        },
+        // 激活菜单
+        activeMenu(name: string) {
+            this.current = name
         }
     },
     // 启用持久化

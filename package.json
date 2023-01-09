@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "admin template",
   "author": "lhlyu",
+  "type": "module",
   "scripts": {
     "fmt": "prettier --write .",
     "dev": "vite --host",
@@ -12,22 +13,23 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.24.0",
-    "pinia": "^2.0.27",
-    "pinia-plugin-persistedstate": "^3.0.1",
+    "pinia": "^2.0.28",
+    "pinia-plugin-persistedstate": "^3.0.2",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.2.0",
-    "@vitejs/plugin-vue-jsx": "^2.1.1",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.0",
     "@vue/compiler-sfc": "^3.2.45",
     "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.19",
-    "prettier": "^2.8.1",
-    "sass": "^1.56.1",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.2",
+    "rollup-plugin-external-globals": "^0.7.1",
+    "sass": "^1.57.1",
     "typescript": "^4.9.4",
-    "vite": "^3.2.5",
+    "vite": "^4.0.4",
     "vite-plugin-vue-setup-extend": "^0.4.0",
-    "vue-tsc": "^0.40.13"
+    "vue-tsc": "^1.0.24"
   }
 }
