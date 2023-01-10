@@ -10,10 +10,8 @@
 body {
     font-family: var(--admin-font-family);
     font-size: var(--admin-font-size);
-    background-color: rgb(var(--admin-bg));
     color: rgb(var(--admin-font-color));
     scroll-behavior: smooth;
-    transition: background 0.4s linear, color 0.4s linear;
 }
 
 ::selection {

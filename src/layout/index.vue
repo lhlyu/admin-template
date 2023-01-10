@@ -103,6 +103,8 @@ onBeforeMount(() => {
     .layout-container {
         flex: 1;
         overflow: auto;
+        background-color: rgb(var(--admin-bg));
+        transition: all 0.4s linear;
 
         header {
             display: flex;

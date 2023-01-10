@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main :style="{backgroundImage: bg}">
         <section class="box">
             <div class="title">
                 <h3>登录/注册</h3>
@@ -52,7 +52,7 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { ref } from 'vue'
+import {onBeforeMount, ref} from 'vue'
 import useClientHeight from '../../hooks/useClientHeight'
 
 const router = useRouter()
@@ -81,6 +81,24 @@ const clearAccount = () => {
 const clearPassword = () => {
     password.value = ''
 }
+
+const bg = ref<string | boolean>(false)
+
+onBeforeMount(async () => {
+    const img = await new Promise<string | boolean>((resolve, reject) => {
+        const img = new Image()
+        img.src = '/bg.jpg'
+        img.onload = () => {
+            resolve(`url('${img.src}')`)
+        }
+        img.onerror = () => {
+            resolve(false)
+        }
+    })
+    bg.value = img
+})
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -91,7 +109,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/bg.jpg');
     background-size: cover;
     background-position: center;
     z-index: 1;

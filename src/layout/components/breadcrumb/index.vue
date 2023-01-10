@@ -49,9 +49,10 @@ onBeforeRouteUpdate(u => {
 .breadcrumb {
     padding: 0 20px;
     height: 50px;
+    width: 100%;
     box-sizing: border-box;
     background: rgb(var(--admin-aside-bg));
-    width: 100%;
+    transition: all 0.4s linear;
     overflow: auto;
 
     &::-webkit-scrollbar {
@@ -65,8 +66,8 @@ onBeforeRouteUpdate(u => {
         width: 100%;
         li {
             margin-right: 8px;
-
             color: rgba(var(--admin-font-color), 0.8);
+
             .title {
                 max-width: 120px;
                 margin-right: 8px;
