@@ -27,8 +27,13 @@ const AppMenu = defineComponent({
             if (!init) {
                 await router.push({ name })
             }
-            store.expandMenu(...menuMap.value[name].parents)
+            const m = menuMap.value[name]
+            store.expandMenu(...m.parents)
             store.activeMenu(name)
+            if (m?.meta?.affix === false) {
+                return
+            }
+            store.addKeepaliveCache(name)
         }
 
         onBeforeMount(() => {
@@ -45,7 +50,7 @@ const AppMenu = defineComponent({
 
         // 渲染子元素
         const renderItem = (childrens: MenuItem[]) => {
-            return childrens.map((v) => {
+            return childrens.map(v => {
                 const indent = (v.parents.length + 1) * 1.5 + 'rem'
                 if (v.childrens.length) {
                     return (

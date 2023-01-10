@@ -1,18 +1,34 @@
 <template>
     <div>
         <h1>setting/site</h1>
-        <div>
-            <pre><code>{{ JSON.stringify(route, null, '  ')}}</code></pre>
+        <div class="input">
+            <input type="text" maxlength="16" />
         </div>
     </div>
 </template>
 
-<script setup lang="ts" name="site">
-import { useRouter, useRoute } from 'vue-router'
-import { onMounted } from 'vue'
+<script setup lang="ts"></script>
 
-const router = useRouter()
-const route = useRoute()
+<style lang="scss" scoped>
+h1 {
+    font-size: 30px;
+}
+.input {
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 30px;
 
-onMounted(() => {})
-</script>
+    input {
+        outline: none;
+        border: 0;
+        width: 100%;
+        height: 38px;
+        padding: 5px 18px;
+        box-sizing: border-box;
+
+        letter-spacing: 2px;
+    }
+}
+</style>

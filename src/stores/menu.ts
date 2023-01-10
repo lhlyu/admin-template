@@ -5,14 +5,19 @@ export interface MenuOption {
     current: string
     // 展开的菜单
     expands: string[]
+    // keepalive 缓存
+    keepaliveCaches: string[]
 }
+
+const initCurrent = 'dashboard'
 
 // 菜单配置
 const useMenuStore = defineStore({
     id: 'menu',
     state: (): MenuOption => ({
-        current: 'dashboard',
-        expands: []
+        current: initCurrent,
+        expands: [],
+        keepaliveCaches: [initCurrent]
     }),
     getters: {},
     actions: {
@@ -35,6 +40,28 @@ const useMenuStore = defineStore({
         // 激活菜单
         activeMenu(name: string) {
             this.current = name
+        },
+        // 添加缓存
+        addKeepaliveCache(name: string) {
+            const index = this.keepaliveCaches.indexOf(name)
+            if (index === -1) {
+                this.keepaliveCaches.push(name)
+            }
+        },
+        // 移除缓存
+        removeKeepaliveCache(name: string) {
+            const index = this.keepaliveCaches.indexOf(name)
+            if (index > -1) {
+                this.keepaliveCaches.splice(index, 1)
+            }
+        },
+        // 移除其他缓存
+        removeOtherKeepaliveCaches() {
+            this.keepaliveCaches = [initCurrent, this.current]
+        },
+        // 移除所有缓存
+        removeAllKeppaliveCaches() {
+            this.keepaliveCaches = [initCurrent]
         }
     },
     // 启用持久化

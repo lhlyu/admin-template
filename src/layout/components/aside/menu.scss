@@ -31,7 +31,7 @@ menu {
         align-items: center;
 
         &:hover {
-            @media screen and (min-width: 100px) {
+            @media screen and (min-width: 400px) {
                 background: rgba(var(--admin-menu-selected-bg), 0.4);
             }
         }

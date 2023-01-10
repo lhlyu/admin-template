@@ -52,7 +52,7 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import {onBeforeMount, ref, StyleValue} from 'vue'
+import { onBeforeMount, ref, StyleValue } from 'vue'
 import useClientHeight from '../../hooks/useClientHeight'
 
 const router = useRouter()
@@ -98,8 +98,6 @@ onBeforeMount(async () => {
     })
     bg.value = img
 })
-
-
 </script>
 
 <style lang="scss" scoped>

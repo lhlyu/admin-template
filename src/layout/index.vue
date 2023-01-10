@@ -26,12 +26,12 @@
         <section class="layout-container">
             <header>
                 <Breadcrumb></Breadcrumb>
-                <!--                <Tabsbar></Tabsbar>-->
+                <Tabsbar></Tabsbar>
             </header>
             <main>
                 <router-view v-slot="{ Component }">
                     <transition name="fade" mode="out-in">
-                        <keep-alive>
+                        <keep-alive :include="menuStore.keepaliveCaches">
                             <component :is="Component" />
                         </keep-alive>
                     </transition>
@@ -45,9 +45,11 @@
 import { onBeforeMount } from 'vue'
 import { Lander, AppMenu, Tabsbar, Breadcrumb } from './components/index'
 import useSiteStore from '../stores/site'
+import useMenuStore from '../stores/menu'
 import useClientHeight from '../hooks/useClientHeight'
 
 const store = useSiteStore()
+const menuStore = useMenuStore()
 
 const { clientHeight } = useClientHeight()
 
@@ -109,7 +111,6 @@ onBeforeMount(() => {
         header {
             display: flex;
             flex-direction: column;
-            height: 80px;
             width: 100%;
         }
 

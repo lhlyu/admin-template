@@ -1,15 +1,13 @@
 <template>
     <div>
-        <h1>dashboard</h1>
+        <h1>setting/user/profile</h1>
         <div class="input">
             <input type="text" maxlength="16" />
         </div>
     </div>
 </template>
 
-<script setup lang="ts">
-// aaa
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 h1 {

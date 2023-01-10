@@ -8,8 +8,11 @@ const BlankLayout = () => import('../layout/blank.vue')
 const LoginView = () => import('../views/login/index.vue')
 
 const DashboardView = () => import('../views/dashboard/index.vue')
-const UserView = () => import('../views/setting/user/index.vue')
+const RoleView = () => import('../views/role/index.vue')
+const LogView = () => import('../views/setting/log/index.vue')
 const SiteView = () => import('../views/setting/site/index.vue')
+const AccountView = () => import('../views/setting/user/account/index.vue')
+const ProfileView = () => import('../views/setting/user/profile/index.vue')
 
 /**
  * Note: 会根据menuRoutes自动生成左侧的菜单列表
@@ -26,9 +29,18 @@ export const menuRoutes: RouteRecordRaw[] = [
         }
     },
     {
+        name: 'role',
+        path: '/role',
+        component: RoleView,
+        meta: {
+            title: '角色管理',
+            icon: 'role'
+        }
+    },
+    {
         name: 'setting',
         path: '/setting',
-        redirect: '/setting/user',
+        redirect: '/setting/site',
         component: BlankLayout,
         meta: {
             title: '设置',
@@ -36,42 +48,49 @@ export const menuRoutes: RouteRecordRaw[] = [
         },
         children: [
             {
-                name: 'user',
-                path: 'user',
-                component: UserView,
+                name: 'site',
+                path: 'site',
+                component: SiteView,
                 meta: {
-                    title: '用户设置',
-                    icon: 'user'
+                    title: '网站设置',
+                    icon: 'site'
                 }
             },
             {
-                name: 'site',
-                path: 'site',
+                name: 'log',
+                path: 'log',
+                component: LogView,
+                meta: {
+                    title: '网站日志',
+                    icon: 'log'
+                }
+            },
+            {
+                name: 'user',
+                path: 'user',
                 component: BlankLayout,
                 meta: {
-                    title: '网站设置',
-                    icon: 'setting'
+                    title: '用户管理',
+                    icon: 'user'
                 },
                 children: [
                     {
-                        name: 'acm',
-                        path: 'acm',
-                        component: BlankLayout,
+                        name: 'account',
+                        path: 'account',
+                        component: AccountView,
                         meta: {
-                            title: '配置中心',
-                            icon: 'acm'
-                        },
-                        children: [
-                            {
-                                name: 'site2',
-                                path: 'site2',
-                                component: DashboardView,
-                                meta: {
-                                    title: '网站设置2',
-                                    icon: 'setting'
-                                }
-                            }
-                        ]
+                            title: '账号中心',
+                            icon: 'account'
+                        }
+                    },
+                    {
+                        name: 'profile',
+                        path: 'profile',
+                        component: ProfileView,
+                        meta: {
+                            title: '个人中心',
+                            icon: 'profile'
+                        }
                     }
                 ]
             }

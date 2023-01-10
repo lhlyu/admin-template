@@ -15,16 +15,13 @@ import useMenu, { MenuItem } from '../../../hooks/useMenu'
 import { onMounted, ref } from 'vue'
 
 const route = useRoute()
-const { menuItems, menuMap } = useMenu()
+const { menuMap } = useMenu()
 
 const list = ref<MenuItem[]>([])
 
 const setBreadcrumb = (name: string) => {
     const items: MenuItem[] = []
     const current = menuMap.value[name]
-    if (name !== menuItems.value[0].name) {
-        items.push(menuItems.value[0])
-    }
     current.parents.forEach(value => {
         items.push(menuMap.value[value])
     })
@@ -66,7 +63,7 @@ onBeforeRouteUpdate(u => {
         width: 100%;
         li {
             margin-right: 8px;
-            color: rgba(var(--admin-font-color), 0.8);
+            color: rgba(var(--admin-font-color), 0.7);
 
             .title {
                 max-width: 120px;
