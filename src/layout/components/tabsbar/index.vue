@@ -3,9 +3,8 @@
         <div class="tab" :class="{ active: menuItems[0].name === route.name }" :key="menuItems[0].name" @click="activeTab(menuItems[0].name)">
             <span>{{ menuItems[0].title }}</span>
         </div>
-        <div class="tab">
+        <div class="tab" @click="triggleDropmenu">
             <svg
-                @click="triggleDropmenu"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
