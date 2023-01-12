@@ -162,7 +162,7 @@ onUnmounted(() => {
             .backtop {
                 position: fixed;
                 bottom: 50px;
-                right: 10px;
+                right: 20px;
                 padding: 10px 12px;
                 border-radius: 100%;
                 z-index: 1;
