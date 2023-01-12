@@ -28,7 +28,10 @@
                 <Breadcrumb></Breadcrumb>
                 <Tabsbar></Tabsbar>
             </header>
-            <main>
+            <main ref="main">
+                <button class="backtop" @click="backtop" v-show="backtopShow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 19 21 12 17 5 21 12 2"></polygon></svg>
+                </button>
                 <router-view v-slot="{ Component }">
                     <transition name="fade" mode="out-in">
                         <keep-alive :include="menuStore.keepaliveCaches">
@@ -42,7 +45,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeMount } from 'vue'
+import {onBeforeMount, onMounted, onUnmounted, ref} from 'vue'
 import { Lander, AppMenu, Tabsbar, Breadcrumb } from './components/index'
 import useSiteStore from '../stores/site'
 import useMenuStore from '../stores/menu'
@@ -53,9 +56,40 @@ const menuStore = useMenuStore()
 
 const { clientHeight } = useClientHeight()
 
+const main = ref<HTMLElement>()
+const backtopShow = ref<boolean>(false)
+
+const backtop = () => {
+    main.value?.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+}
+
+const setBacktopShow = () => {
+    const scrollTop = main.value?.scrollTop ?? 0
+    const clientHeight = document.documentElement.offsetHeight
+    if (scrollTop + 300 > clientHeight) {
+        backtopShow.value = true
+        return
+    }
+    backtopShow.value = false
+}
+
 onBeforeMount(() => {
     store.setTheme(store.theme)
 })
+
+onMounted(() => {
+    main.value?.addEventListener('scroll', setBacktopShow)
+})
+
+onUnmounted(() => {
+    main.value?.removeEventListener('scroll', setBacktopShow)
+})
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -103,8 +137,11 @@ onBeforeMount(() => {
     }
 
     .layout-container {
+        display: flex;
+        flex-direction: column;
         flex: 1;
-        overflow: auto;
+        overflow-x: auto;
+        width: 100%;
         background-color: rgb(var(--admin-bg));
         transition: all 0.4s linear;
 
@@ -115,10 +152,32 @@ onBeforeMount(() => {
         }
 
         main {
-            padding: 20px;
+            position: relative;
+            padding: 20px 30px;
             box-sizing: border-box;
             width: 100%;
+            height: 100%;
             overflow: auto;
+
+            .backtop {
+                position: fixed;
+                bottom: 50px;
+                right: 10px;
+                padding: 10px 12px;
+                border-radius: 100%;
+                z-index: 1;
+                outline: none;
+                border: 0;
+                cursor: pointer;
+                background: rgb(var(--admin-aside-bg));
+                transition: all 0.4s linear;
+                opacity: 0.9;
+
+                svg {
+                    color: rgb(var(--admin-collapse-color));
+                    transition: all 0.4s linear;
+                }
+            }
         }
     }
 }
