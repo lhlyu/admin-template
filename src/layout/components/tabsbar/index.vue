@@ -19,9 +19,9 @@
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
-            <ul class="dropmenu" v-if="dropmenuShow">
-                <li @click="closeTabs(false)">关闭其他</li>
-                <li @click="closeTabs(true)">关闭所有</li>
+            <ul class="dropmenu" v-show="dropmenuShow">
+                <li @click.stop="closeTabs(false)">关闭其他</li>
+                <li @click.stop="closeTabs(true)">关闭所有</li>
             </ul>
         </div>
         <div class="tabs">
