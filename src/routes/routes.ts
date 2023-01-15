@@ -53,7 +53,8 @@ export const menuRoutes: RouteRecordRaw[] = [
                 component: SiteView,
                 meta: {
                     title: '网站设置',
-                    icon: 'site'
+                    icon: 'site',
+                    affix: false
                 }
             },
             {

@@ -1,7 +1,7 @@
 <template>
     <section class="layout">
         <aside class="layout-aside" :style="{ width: store.getClientHeight }">
-            <button class="collapsed" @click="store.triggleCollapsed">
+            <button class="collapsed" aria-label="collapsed" @click="store.triggleCollapsed">
                 <svg
                     class="collapsed-icon"
                     :style="{ transform: store.collapsed ? 'rotateZ(180deg)' : 'none' }"
