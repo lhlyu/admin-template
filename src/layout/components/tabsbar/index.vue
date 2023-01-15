@@ -3,7 +3,7 @@
         <div class="tab" :class="{ active: menuItems[0].name === route.name }" :key="menuItems[0].name" @click="activeTab(menuItems[0].name)">
             <span>{{ menuItems[0].title }}</span>
         </div>
-        <div class="tab" @click="triggleDropmenu">
+        <div class="tab" @mouseenter="dropmenuShow = true" @mouseleave="dropmenuShow = false">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -86,11 +86,6 @@ onMounted(() => {
 
 const dropmenuShow = ref<boolean>(false)
 
-// 打开tab菜单
-const triggleDropmenu = () => {
-    dropmenuShow.value = !dropmenuShow.value
-}
-
 const closeTabs = async (all: boolean = false) => {
     if (all === true) {
         await router.push({ name: menuItems.value[0].name })
@@ -163,7 +158,6 @@ const activeTab = (name: string) => {
             display: inline-flex;
 
             span {
-                opacity: 1;
                 margin-right: 2px;
                 transition: all 0.2s linear;
             }
@@ -171,15 +165,15 @@ const activeTab = (name: string) => {
     }
 
     .active {
-        span {
-            opacity: 1;
+        span,
+        svg {
             color: rgb(var(--admin-theme-color));
         }
     }
 
     .dropmenu {
         position: absolute;
-        top: 35px;
+        top: 30px;
         left: 0;
         list-style-type: none;
         display: flex;
@@ -193,7 +187,6 @@ const activeTab = (name: string) => {
             border-radius: 4px;
             background-color: rgb(var(--admin-tab-bg));
             font-size: 14px;
-            font-weight: bold;
             &:hover {
                 color: rgb(var(--admin-theme-color));
             }

@@ -1,5 +1,6 @@
 import { defineComponent, onBeforeMount } from 'vue'
 import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router'
+import ExpandTransition from './expand-transition.vue'
 import useMenu from '../../../hooks/useMenu'
 import useMenuStore from '../../../stores/menu'
 import type { MenuItem } from '../../../hooks/useMenu'
@@ -59,7 +60,9 @@ const AppMenu = defineComponent({
                                 {v?.icon} <span class="title">{v.title}</span>
                                 <span class="menu-expand"></span>
                             </div>
-                            <ul>{renderItem(v.childrens)}</ul>
+                            <ExpandTransition>
+                                <ul v-show={store.expands.includes(v.name)}>{renderItem(v.childrens)}</ul>
+                            </ExpandTransition>
                         </li>
                     )
                 }
@@ -88,7 +91,9 @@ const AppMenu = defineComponent({
                                         {v?.icon} <span class="title">{v.title}</span>
                                         <span class="menu-expand"></span>
                                     </div>
-                                    <ul>{renderItem(v.childrens)}</ul>
+                                    <ExpandTransition>
+                                        <ul v-show={store.expands.includes(v.name)}>{renderItem(v.childrens)}</ul>
+                                    </ExpandTransition>
                                 </li>
                             )
                         }
