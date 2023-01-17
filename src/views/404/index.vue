@@ -16,7 +16,7 @@
                 <div class="right-arm arm"></div>
             </div>
         </div>
-        <p>maybe you want to go <a href="/" @click="goback">back? </a></p>
+        <p>maybe you want to go <a href="/">back? </a></p>
     </main>
 </template>
 
