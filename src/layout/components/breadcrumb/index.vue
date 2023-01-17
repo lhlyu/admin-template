@@ -64,6 +64,12 @@ onBeforeRouteUpdate(u => {
         li {
             margin-right: 8px;
             color: rgba(var(--admin-font-color), 0.7);
+            display: inline-flex;
+            align-items: center;
+
+            &:last-child {
+                color: rgba(var(--admin-font-color), 0.9);
+            }
 
             .title {
                 max-width: 120px;

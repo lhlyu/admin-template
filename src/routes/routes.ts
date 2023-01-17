@@ -5,6 +5,7 @@ import { formatFlatteningRoutes } from './util'
 const IndexLayout = () => import('../layout/index.vue')
 const BlankLayout = () => import('../layout/blank.vue')
 // 页面
+const NotFoundView = () => import('../views/404/index.vue')
 const LoginView = () => import('../views/login/index.vue')
 
 const DashboardView = () => import('../views/dashboard/index.vue')
@@ -110,9 +111,17 @@ export const routes: RouteRecordRaw[] = [
     },
     {
         name: 'home',
-        path: '/',
+        path: '/dashboard',
         redirect: 'dashboard',
         component: IndexLayout,
         children: formatFlatteningRoutes(menuRoutes)
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'notFound',
+        component: NotFoundView,
+        meta: {
+            title: '404'
+        }
     }
 ]

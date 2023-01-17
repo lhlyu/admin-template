@@ -1,4 +1,6 @@
 menu {
+    --admin-menu-item-height: 50px;
+
     ul {
         list-style-type: none;
         will-change: width;
@@ -22,12 +24,11 @@ menu {
     .menu-item {
         padding: 0 28px;
         box-sizing: border-box;
-        height: 40px;
+        height: var(--admin-menu-item-height);
         width: 100%;
-        line-height: 40px;
+        line-height: var(--admin-menu-item-height);
         border-right: 4px solid transparent;
         color: rgb(var(--admin-font-color));
-        font-weight: bolder;
         text-decoration: none;
         transition: all 0.2s ease-in-out;
         user-select: none;
@@ -42,7 +43,7 @@ menu {
 
         .title {
             pointer-events: none;
-            margin: 0 4px;
+            margin: 0 5px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -57,10 +58,6 @@ menu {
             clip-path: polygon(30% 0, 50% 0, 80% 50%, 50% 100%, 30% 100%, 60% 50%);
             transition: all 0.4s linear;
         }
-
-        //& + ul {
-        //    display: none;
-        //}
     }
 
     // 菜单展开

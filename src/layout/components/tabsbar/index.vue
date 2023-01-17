@@ -66,6 +66,10 @@ const setTabs = () => {
         if (menuItems.value[0].name === value) {
             return
         }
+        if (!menuMap.value.hasOwnProperty(value)) {
+            store.removeKeepaliveCache(value)
+            return
+        }
         items.push(menuMap.value[value])
     })
     tabs.value = items
