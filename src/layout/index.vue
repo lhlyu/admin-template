@@ -1,6 +1,6 @@
 <template>
     <section class="layout">
-        <aside class="layout-aside" :style="{ width: store.getClientHeight }">
+        <aside class="layout-aside" :style="{ width: store.getClientWidth }">
             <button class="collapsed" aria-label="collapsed" @click="store.triggleCollapsed">
                 <svg
                     class="collapsed-icon"
@@ -23,7 +23,7 @@
                 <AppMenu></AppMenu>
             </section>
         </aside>
-        <section class="layout-container">
+        <section class="layout-container" :style="{ width: store.getClientContainerWidth }">
             <header>
                 <Breadcrumb></Breadcrumb>
                 <Tabsbar></Tabsbar>

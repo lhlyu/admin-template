@@ -18,11 +18,17 @@ const useSiteStore = defineStore({
         topbar: true
     }),
     getters: {
-        getClientHeight: state => {
+        getClientWidth: state => {
             if (state.collapsed) {
                 return '0'
             }
             return '300px'
+        },
+        getClientContainerWidth: state => {
+            if (state.collapsed) {
+                return 'fit-content'
+            }
+            return 'auto'
         }
     },
     actions: {
