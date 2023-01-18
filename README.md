@@ -9,6 +9,10 @@
 - ~~没有使用任何的ui框架~~可以跟任何vue3 UI框架搭配
 - 根据路由自动生成菜单、面包屑、标签页
 
+## 搭配
+
+- [与element-plus搭配](https://github.com/lhlyu/vue3-element-plus-admin)
+
 ## 一些图标
 
 - [免费图标](https://www.logosc.cn/logo/)
